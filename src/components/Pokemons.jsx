@@ -29,12 +29,13 @@ const Pokemons = () => {
   },[])
 
   useEffect(() => {
-    if(isVisible){
-      const maxPokemons = pokemonByName.length
+    const maxPokemons = pokemonByName.length
+    if(isVisible && maxPokemons !== 0) {
       const newLimit = limit + INCREASE_LIMIT
       newLimit > maxPokemons ? setLimit(maxPokemons) :
       setLimit(newLimit)
     } 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[isVisible])
 
   useEffect(() => {
@@ -50,7 +51,7 @@ const Pokemons = () => {
                 placeholder="Search your pokemon" 
                 name="pokemonName" 
                 onChange={handleChangePokemonName}/>
-          <button className="bg-red-500 p-2 rounded-xl shadow-lg shadow-red-500/20 hover:bg-red-400 transition-colors">
+          <button type="button" className="bg-red-500 p-2 rounded-xl shadow-lg shadow-red-500/20 hover:bg-red-400 transition-colors">
             <IconSearch color="white" stroke={3}/>
           </button>
         </div>
