@@ -19,7 +19,7 @@ const PokemonPreview = ({ pokemonURL, onClick }) => {
       <span className="text-sm text-slate-400">Nº{pokemon?.id}</span>
       <h4 className="text-lg" >{pokemon?.name}</h4>
       <ul className="flex gap-2 justify-center">
-            {pokemon?.types.map(type => <li className={` p-1 rounded-md px-2 text-white text-sm ${colorByType[type.type.name]}`} key={type.type.name}>{type.type.name}</li>)}
+            {pokemon?.types.map((type) => ( <li className={` p-1 rounded-md px-2 text-white text-sm ${colorByType[type.type.name]}`} key={type.type.name}>{type.type.name}</li>))}
       </ul>
     </article>
   )
