@@ -16,8 +16,10 @@ const PokemonProvider = ({ children }) => {
     // eslint-disable-next-line no-unreachable
     const [pokemonDetail, setPokemonDetail] = useState (null)
     const [showDetailPokemon, setShowDetailPokemon] = useState(false);
-    
+    const [isLoading, setIsLoading] = useState(false)    
+
     const showPokemon = async (pokemonInfo) => {
+        setIsLoading(true)
         const {data: dataSpecies} = await axios.get(pokemonInfo.species.url)
         const {data: dataEvolution} = await axios.get(dataSpecies.evolution_chain.url)
 
@@ -36,7 +38,10 @@ const PokemonProvider = ({ children }) => {
             evolutions,
             image: getImageByPokemon(pokemonInfo.sprites),
         })
-        setShowDetailPokemon(true);
+        setShowDetailPokemon(true); 
+        setTimeout(() => {
+            setIsLoading(false)
+        }, 450);
     };
     
     // eslint-disable-next-line no-unreachable
@@ -52,6 +57,7 @@ const PokemonProvider = ({ children }) => {
             showPokemon,
             closePokemonDetail,
             pokemonDetail,
+            isLoading,
         }}
     >
         {children}

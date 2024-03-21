@@ -9,6 +9,9 @@ export default {
       fontFamily:{
         outfit:["outfit", "sans-serif"]
       },
+      animation: {
+        "spin-slow": "spin 3s linear infinite"
+      }
     },
   },
   plugins: [],

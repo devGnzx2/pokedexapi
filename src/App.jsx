@@ -4,13 +4,13 @@ import Pokemons from "./components/Pokemons"
 import usePokemonContext from "./hooks/usePokemonContext"
 
 function App() {
-  const { showDetailPokemon, closePokemonDetail, pokemonDetail } = usePokemonContext()
+  const { showDetailPokemon, closePokemonDetail, pokemonDetail, isLoading } = usePokemonContext()
 
   return (
-    <section className="bg-[#F6F8FC] h-screen font-outfit overflow-y-auto">
+    <section className="bg-[#F6F8FC] h-screen font-outfit overflow-y-auto bg-[url(/img/pokeball-icon.png)] bg-no-repeat bg[-10%_-20%] overflow-x-auto-hidden">
       <main className="max-w-[1400] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_350px]">
         <Pokemons/>
-        <Aside/>
+        <Aside pokemon={pokemonDetail} isLoading={isLoading}/>
         <ModalPokemon
           showModal={showDetailPokemon}
           onCloseModal={closePokemonDetail}
