@@ -22,12 +22,12 @@ const PokemonDetail = ({ pokemon, }) => {
                 </div>
                 <section className="grid grid-cols-2 gap-4">
                     <div className="grid gap-2">
-                        <h4 className="font-bold  capitalize">Height</h4>
-                        <span className="bg-slate-100 block rounded-full p-2"></span> 
+                        <h4 className="font-bold  capitalize">Heigth</h4>
+                        <span className="bg-slate-100 block rounded-full p-2">{pokemon?.height}</span> 
                     </div>
                     <div className="grid gap-2">
                         <h4 className="font-bold capitalize">Weight</h4>
-                        <span className="bg-slate-100 block rounded-full p-2">6.7kg</span> 
+                        <span className="bg-slate-100 block rounded-full p-2">{pokemon?.weight}</span> 
                     </div>
                 </section>
                 <section className="grid gap-2">
